@@ -71,4 +71,12 @@ class ExampleRobolectricTest {
     assertEquals("directions_car", uberCategory.iconKey)
     assertEquals(TransactionType.EXPENSE, uberCategory.type)
   }
+
+  @Test
+  fun `apk export helper returns valid apk metadata`() {
+    val context = ApplicationProvider.getApplicationContext<Context>()
+    val apkInfo = com.example.util.ApkExportHelper.getApkInfo(context)
+    assertEquals("WilliamsVault.apk", apkInfo.fileName)
+    assertEquals(context.packageName, apkInfo.packageName)
+  }
 }

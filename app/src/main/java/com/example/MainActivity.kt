@@ -47,6 +47,7 @@ import com.example.ui.FinanceViewModel
 import com.example.ui.components.*
 import com.example.ui.screens.*
 import com.example.ui.theme.*
+import com.example.util.ApkExportHelper
 import com.example.util.BiometricAuthManager
 import com.example.util.CsvExportHelper
 import com.example.util.PdfReportGenerator
@@ -146,11 +147,18 @@ class MainActivity : FragmentActivity() {
                         },
                         onDownloadPdf = {
                             downloadFinancePdf(this, uiState)
+                        },
+                        onDownloadApk = {
+                            downloadAppApk(this)
                         }
                     )
                 }
             }
         }
+    }
+
+    private fun downloadAppApk(context: Context) {
+        ApkExportHelper.downloadOrShareApk(context)
     }
 
     private fun downloadFinancePdf(context: Context, uiState: FinanceUiState) {
@@ -219,7 +227,8 @@ fun MainApp(
     onToggleDarkMode: () -> Unit,
     onExportTransactionsCsv: (List<TransactionEntity>, Boolean) -> Unit,
     onExportFullBackupCsv: () -> Unit,
-    onDownloadPdf: () -> Unit
+    onDownloadPdf: () -> Unit,
+    onDownloadApk: () -> Unit = {}
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val filteredTransactions by viewModel.filteredTransactions.collectAsStateWithLifecycle()
@@ -596,7 +605,8 @@ fun MainApp(
                 onDismiss = { showExportOptionsModal = false },
                 onDownloadPdf = onDownloadPdf,
                 onExportTransactionsCsv = { onExportTransactionsCsv(uiState.transactions, false) },
-                onExportFullBackupCsv = onExportFullBackupCsv
+                onExportFullBackupCsv = onExportFullBackupCsv,
+                onDownloadApk = onDownloadApk
             )
         }
 
@@ -620,6 +630,7 @@ fun MainApp(
                         snackbarHostState.showSnackbar("All data cleared. Started fresh with ₹0.")
                     }
                 },
+                onDownloadApk = onDownloadApk,
                 onDismiss = { showSecuritySettingsDialog = false },
                 onSetPin = { newPin ->
                     viewModel.setPin(newPin)

@@ -566,6 +566,7 @@ fun SecuritySettingsDialog(
     selectedThemePalette: String = "NAVY_SKY",
     onSelectThemePalette: (String) -> Unit = {},
     onResetData: () -> Unit = {},
+    onDownloadApk: () -> Unit = {},
     onDismiss: () -> Unit,
     onSetPin: (String) -> Unit,
     onDisablePin: () -> Unit,
@@ -966,7 +967,99 @@ fun SecuritySettingsDialog(
 
                         Spacer(modifier = Modifier.height(20.dp))
 
-                        // --- Section 4: Data Management & Fresh Start ---
+                        // --- Section 4: App Package & Offline APK Installer ---
+                        Text(
+                            text = "APP INSTALLER & BACKUP (APK)",
+                            style = MaterialTheme.typography.labelSmall.copy(
+                                fontWeight = FontWeight.Bold,
+                                letterSpacing = 1.sp
+                            ),
+                            color = MintCyan
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        Surface(
+                            shape = RoundedCornerShape(14.dp),
+                            color = DarkSurfaceElevated,
+                            border = androidx.compose.foundation.BorderStroke(1.dp, MintCyan.copy(alpha = 0.4f)),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Column(modifier = Modifier.padding(14.dp)) {
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(40.dp)
+                                            .clip(CircleShape)
+                                            .background(MintCyanContainer),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.Android,
+                                            contentDescription = "Android APK",
+                                            tint = MintCyan,
+                                            modifier = Modifier.size(22.dp)
+                                        )
+                                    }
+                                    Spacer(modifier = Modifier.width(12.dp))
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Row(verticalAlignment = Alignment.CenterVertically) {
+                                            Text(
+                                                text = "Download App APK",
+                                                fontWeight = FontWeight.Bold,
+                                                color = TextPrimary,
+                                                fontSize = 13.sp
+                                            )
+                                            Spacer(modifier = Modifier.width(6.dp))
+                                            Surface(
+                                                shape = RoundedCornerShape(6.dp),
+                                                color = MintCyanContainer,
+                                                contentColor = MintCyan
+                                            ) {
+                                                Text(
+                                                    text = "APK",
+                                                    fontSize = 9.sp,
+                                                    fontWeight = FontWeight.Bold,
+                                                    modifier = Modifier.padding(horizontal = 5.dp, vertical = 2.dp)
+                                                )
+                                            }
+                                        }
+                                        Text(
+                                            text = "Save WilliamsVault.apk package to install on your phone or backup offline",
+                                            color = TextSecondary,
+                                            fontSize = 11.sp
+                                        )
+                                    }
+                                }
+
+                                Spacer(modifier = Modifier.height(12.dp))
+
+                                Button(
+                                    onClick = {
+                                        onDismiss()
+                                        onDownloadApk()
+                                    },
+                                    shape = RoundedCornerShape(10.dp),
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = MintCyan,
+                                        contentColor = DarkBackground
+                                    ),
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .testTag("download_apk_settings_btn")
+                                ) {
+                                    Icon(Icons.Default.Download, contentDescription = null, modifier = Modifier.size(16.dp))
+                                    Spacer(modifier = Modifier.width(6.dp))
+                                    Text("Download / Share APK", fontWeight = FontWeight.Bold, fontSize = 12.sp)
+                                }
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        // --- Section 5: Data Management & Fresh Start ---
                         Text(
                             text = "DATA MANAGEMENT",
                             style = MaterialTheme.typography.labelSmall.copy(
@@ -1299,7 +1392,8 @@ fun ExportOptionsModal(
     onDismiss: () -> Unit,
     onDownloadPdf: () -> Unit,
     onExportTransactionsCsv: () -> Unit,
-    onExportFullBackupCsv: () -> Unit
+    onExportFullBackupCsv: () -> Unit,
+    onDownloadApk: () -> Unit = {}
 ) {
     ModalBottomSheet(
         onDismissRequest = onDismiss,
@@ -1553,6 +1647,79 @@ fun ExportOptionsModal(
                         Spacer(modifier = Modifier.height(2.dp))
                         Text(
                             text = "Formatted statement with summary cards, budget caps & transaction table",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = TextSecondary
+                        )
+                    }
+                    Icon(
+                        imageVector = Icons.Default.ChevronRight,
+                        contentDescription = null,
+                        tint = TextMuted,
+                        modifier = Modifier.size(20.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            // Option 4: Download App APK
+            Surface(
+                shape = RoundedCornerShape(16.dp),
+                color = DarkSurfaceElevated,
+                border = androidx.compose.foundation.BorderStroke(1.dp, MintCyan.copy(alpha = 0.4f)),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .bouncyClickable {
+                        onDownloadApk()
+                        onDismiss()
+                    }
+                    .testTag("download_apk_export_option")
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(42.dp)
+                            .clip(CircleShape)
+                            .background(MintCyanContainer),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Android,
+                            contentDescription = "Android APK",
+                            tint = MintCyan,
+                            modifier = Modifier.size(22.dp)
+                        )
+                    }
+                    Spacer(modifier = Modifier.width(14.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(
+                                text = "Download Williams Vault APK",
+                                style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
+                                color = TextPrimary
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Surface(
+                                shape = RoundedCornerShape(6.dp),
+                                color = MintCyanContainer,
+                                contentColor = MintCyan
+                            ) {
+                                Text(
+                                    text = "APK",
+                                    fontSize = 10.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(2.dp))
+                        Text(
+                            text = "Direct Android installer package (WilliamsVault.apk) ready to install or share",
                             style = MaterialTheme.typography.bodySmall,
                             color = TextSecondary
                         )
