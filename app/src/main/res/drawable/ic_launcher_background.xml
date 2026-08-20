@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Premium Deep Obsidian Navy Radial Gradient Canvas -->
+    <path android:pathData="M0,0h108v108h-108z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="0"
+                android:endX="108"
+                android:endY="108"
+                android:type="linear">
+                <item android:color="#0F172A" android:offset="0.0" />
+                <item android:color="#030712" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Subtle Geometric Security Vault Grid Pattern -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#1E38BDF8"
+        android:strokeWidth="0.8"
+        android:pathData="M18,18 L90,18 L90,90 L18,90 Z M36,36 L72,36 L72,72 L36,72 Z" />
+
+    <!-- Radiant Corner Accents -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#330284C7"
+        android:strokeWidth="1.2"
+        android:pathData="M24,18 L18,18 L18,24 M84,18 L90,18 L90,24 M18,84 L18,90 L24,90 M90,84 L90,90 L84,90" />
+</vector>

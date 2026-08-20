@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Center Safe Zone (66dp within 108dp) -->
+    <!-- Vault Outer Shield & Ring -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M54,23 C36.88,23 23,36.88 23,54 C23,71.12 36.88,85 54,85 C71.12,85 85,71.12 85,54 C85,36.88 71.12,23 54,23 Z" />
+
+    <!-- Vault Inner Door Steel Hub -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M54,27 C39.09,27 27,39.09 27,54 C27,68.91 39.09,81 54,81 C68.91,81 81,68.91 81,54 C81,39.09 68.91,27 54,27 Z" />
+
+    <!-- Vault Rim Bolts -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M54,29 A2.5,2.5 0 1,0 54,34 A2.5,2.5 0 1,0 54,29 Z
+                          M54,74 A2.5,2.5 0 1,0 54,79 A2.5,2.5 0 1,0 54,74 Z
+                          M29,54 A2.5,2.5 0 1,0 34,54 A2.5,2.5 0 1,0 29,54 Z
+                          M74,54 A2.5,2.5 0 1,0 79,54 A2.5,2.5 0 1,0 74,54 Z
+                          M36.3,36.3 A2.5,2.5 0 1,0 39.8,39.8 A2.5,2.5 0 1,0 36.3,36.3 Z
+                          M68.2,68.2 A2.5,2.5 0 1,0 71.7,71.7 A2.5,2.5 0 1,0 68.2,68.2 Z
+                          M68.2,39.8 A2.5,2.5 0 1,0 71.7,36.3 A2.5,2.5 0 1,0 68.2,39.8 Z
+                          M36.3,71.7 A2.5,2.5 0 1,0 39.8,68.2 A2.5,2.5 0 1,0 36.3,71.7 Z" />
+
+    <!-- Vault Center Dial Gold Accent Ring -->
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M54,37 C44.61,37 37,44.61 37,54 C37,63.39 44.61,71 54,71 C63.39,71 71,63.39 71,54 C71,44.61 63.39,37 54,37 Z" />
+
+    <path
+        android:fillColor="#1E293B"
+        android:pathData="M54,40 C46.27,40 40,46.27 40,54 C40,61.73 46.27,68 54,68 C61.73,68 68,61.73 68,54 C68,46.27 61.73,40 54,40 Z" />
+
+    <!-- Prominent Stylized 'W' Vault Emblem in Bold Gold & Cyan Glow -->
+    <path
+        android:fillColor="#FBBF24"
+        android:pathData="M44.5,45.5 L47.5,45.5 L51,59.5 L54,48 L54,48 L57,59.5 L60.5,45.5 L63.5,45.5 L59,62.5 L55.5,62.5 L54,55 L52.5,62.5 L49,62.5 Z" />
+
+    <!-- Center Security Diamond Spark -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M54,45 L56,48 L54,51 L52,48 Z" />
+</vector>

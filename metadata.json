@@ -1,0 +1,6 @@
+{
+  "name": "Williams Vault",
+  "description": "Personal finance management and vault to track income, expenses, accounts, budgets, and savings goals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
